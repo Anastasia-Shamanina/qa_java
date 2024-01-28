@@ -3,7 +3,6 @@ import org.junit.Test;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 
-
 public class TestFeline {
 
     @Test
@@ -17,5 +16,4 @@ public class TestFeline {
         Feline feline = new Feline();
         assertEquals("Кошачьи",feline.getFamily());
     }
-
 }

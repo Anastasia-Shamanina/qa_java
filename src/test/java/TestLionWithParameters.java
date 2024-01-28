@@ -6,8 +6,6 @@ import org.mockito.MockitoAnnotations;
 import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 
-
-
 @RunWith(Parameterized.class) // указали, что тесты будет запускать раннер Parameterized
 public class TestLionWithParameters {
 

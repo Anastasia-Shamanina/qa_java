@@ -7,19 +7,19 @@ import org.junit.Before;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 
-
 public class TestLion {
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
     }
 
+    int numberOfKittens = 1;
     @Test
     public void testGetKittens() {
         Feline mockFeline = Mockito.mock(Feline.class);
         Lion lion = new Lion(mockFeline);
-        Mockito.when(mockFeline.getKittens()).thenReturn(1);
-        assertEquals(1, lion.getKittens());
+        Mockito.when(mockFeline.getKittens()).thenReturn(numberOfKittens);
+        assertEquals(numberOfKittens, lion.getKittens());
     }
 
     @Test
@@ -29,5 +29,4 @@ public class TestLion {
         Mockito.when(mockFeline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
-
 }
