@@ -16,4 +16,11 @@ public class TestFeline {
         Feline feline = new Feline();
         assertEquals("Кошачьи",feline.getFamily());
     }
+
+    int numberOfKittens = 1;
+    @Test
+    public void getKittensTest(){
+        Feline feline = new Feline();
+        assertEquals(numberOfKittens, feline.getKittens());
+    }
 }

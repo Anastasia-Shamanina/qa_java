@@ -14,10 +14,12 @@ public class TestLion {
     }
 
     int numberOfKittens = 1;
+    private String sex = "Самка";
+    private String type = "Хищник";
     @Test
-    public void testGetKittens() {
+    public void testGetKittens() throws Exception{
         Feline mockFeline = Mockito.mock(Feline.class);
-        Lion lion = new Lion(mockFeline);
+        Lion lion = new Lion(sex,mockFeline);
         Mockito.when(mockFeline.getKittens()).thenReturn(numberOfKittens);
         assertEquals(numberOfKittens, lion.getKittens());
     }
@@ -25,8 +27,8 @@ public class TestLion {
     @Test
     public void testGetFoodLion() throws Exception {
         Feline mockFeline = Mockito.mock(Feline.class);
-        Lion lion = new Lion(mockFeline);
-        Mockito.when(mockFeline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Lion lion = new Lion(sex, mockFeline);
+        Mockito.when(mockFeline.getFood(type)).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 }

@@ -1,7 +1,9 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.junit.Before;
 import static org.junit.Assert.assertEquals;
@@ -25,20 +27,22 @@ public class TestLionWithParameters {
         };
     }
 
+    private Feline feline;
     @Before
     public void init() {
-        MockitoAnnotations.initMocks(this);
+        feline = Mockito.mock(Feline.class);
     }
 
     @Test
     public void testDoesHaveMane() throws Exception {
-        Lion lion = new Lion(sex);
+        Lion lion = new Lion(sex, feline);
         assertEquals(expected, lion.doesHaveMane());
     }
 
+    private String otherSexLion = "Иное";
     @Test(expected = Exception.class) // проверяем исключение
     public void otherSex() throws Exception{
-        new Lion ("Иное");
+        new Lion (otherSexLion,feline);
     }
 }
 
